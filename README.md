@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Amplify Authentication React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React application demonstrates how to integrate AWS Amplify for authentication using the `withAuthenticator` higher-order component (HOC). 
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+- **Authentication**: Easily add user authentication with AWS Amplify.
+- **UI Integration**: Use `withAuthenticator` to handle authentication flows.
+- **Sign Out**: Simple sign-out functionality included.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (v14 or later)
+- npm or yarn
+- AWS Amplify CLI installed (`npm install -g @aws-amplify/cli`)
 
-### `npm test`
+### Setup and Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the Repository:**
 
-### `npm run build`
+```bash
+   git clone https://github.com/your-username/amplify-authentication-react-app.git
+   cd amplify-authentication-react-app
+```
+2. Install Dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Configure AWS Amplify:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Initialize Amplify in your project:
 
-### `npm run eject`
+```bash
+amplify init
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Add authentication:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+amplify add auth
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Push changes to AWS:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+amplify push
+```
+- This will generate the aws-exports.js file required for configuration.
 
-## Learn More
+4. The main component of the application is **App.js**. Here’s a simplified version:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+import { Amplify } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import awsExports from './aws-exports';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Amplify.configure(awsExports);
 
-### Code Splitting
+function App({ signOut, user }) {
+  return (
+    <>
+      <h1>Hello, {user.username}!</h1>
+      <button onClick={signOut}>Sign out</button>
+    </>
+  );
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+export default withAuthenticator(App);
+```
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***Some pictures***
+![Authencation](/images/1.gif?featherlight=false&width=90pc)
+![Authencation](/images/2.gif?featherlight=false&width=90pc)
+![Authencation](/images/3.gif?featherlight=false&width=90pc)
