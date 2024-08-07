@@ -51,29 +51,16 @@ amplify push
 ```
 - This will generate the aws-exports.js file required for configuration.
 
-4. The main component of the application is **App.js**. Here’s a simplified version:
+4. Modify the routes and components in **MyAppLayout.js** as needed:
 
 ```javascript
-import { Amplify } from 'aws-amplify';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-import awsExports from './aws-exports';
+import Home from "../Home";
 
-Amplify.configure(awsExports);
-
-function App({ signOut, user }) {
-  return (
-    <>
-      <h1>Hello, {user.username}!</h1>
-      <button onClick={signOut}>Sign out</button>
-    </>
-  );
-}
-
-export default withAuthenticator(App);
+<Routes>
+    <Route path="/Home" element={<Home setContentHeader={setContentHeader} />} />
+    {/* Add other routes here */}
+</Routes>
 ```
 
 ***Some pictures***
-![Authencation](/images/1.png?featherlight=false&width=90pc)
-![Authencation](/images/2.png?featherlight=false&width=90pc)
-![Authencation](/images/3.png?featherlight=false&width=90pc)
+![Authencation](/images/4.png?featherlight=false&width=90pc)
