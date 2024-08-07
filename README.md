@@ -74,6 +74,6 @@ export default withAuthenticator(App);
 ```
 
 ***Some pictures***
-![Authencation](/images/1.gif?featherlight=false&width=90pc)
-![Authencation](/images/2.gif?featherlight=false&width=90pc)
-![Authencation](/images/3.gif?featherlight=false&width=90pc)
+![Authencation](/images/1.png?featherlight=false&width=90pc)
+![Authencation](/images/2.png?featherlight=false&width=90pc)
+![Authencation](/images/3.png?featherlight=false&width=90pc)
