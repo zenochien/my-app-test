@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import awsExports from './aws-exports';
 import MyAppLayout from './pages/app-layout/MyAppLayout';
+import TopNavigationComponent from "./pages/app-layout/TopNavigationComponent";
 
 Amplify.configure(awsExports);
 
@@ -15,6 +16,7 @@ function App({ signOut, user }) {
   return (
     <AuthContext.Provider value={{ user, signOut }}>
       <Router>
+        <TopNavigationComponent />
         <MyAppLayout />
       </Router>
     </AuthContext.Provider>
