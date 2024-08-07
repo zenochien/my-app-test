@@ -61,7 +61,7 @@ import Home from "../Home";
     {/* Add other routes here */}
 </Routes>
 ```
-5. The side navigation component Navigations.js:
+5. The side navigation component **Navigations.js**:
 
 ```javascript
 import React from "react";
