@@ -33,7 +33,6 @@ export default function MyAppLayout() {
                 toolsHide={isToolsHidden}
                 onNavigationChange={() => setIsNavigationOpen(!isNavigationOpen)}
                 onToolsChange={() => setIsToolsHidden(!isToolsHidden)}
-                TopNavigation={<TopNavigationComponent />}
                 navigation={
                     <Navigations
                         header={{ href: '/Home', text: 'Welcome' }}

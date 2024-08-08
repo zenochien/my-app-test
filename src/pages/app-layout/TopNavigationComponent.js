@@ -1,7 +1,19 @@
 import React from "react";
+import { signOut } from "aws-amplify/auth";
 import { TopNavigation } from "@cloudscape-design/components";
 
 const TopNavigationComponent = () => {
+    const handleSignOut = async () => {
+        try {
+            await signOut({ global: true });
+            console.log("Signed out globally.");
+            // Optionally redirect to login page or home page after sign-out
+            // window.location.href = "/login";
+        } catch (error) {
+            console.error("Error signing out: ", error);
+        }
+    };
+
     return (
         <TopNavigation
             identity={{
@@ -76,12 +88,12 @@ const TopNavigationComponent = () => {
                                 }
                             ]
                         },
-                        { id: "signout", text: "Sign out" }
+                        { id: "signout", text: "Sign out", onClick: handleSignOut }
                     ]
                 }
             ]}
         />
     );
-}
+};
 
 export default TopNavigationComponent;

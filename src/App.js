@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React from "react";
 import { Amplify } from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
@@ -8,18 +8,15 @@ import awsExports from './aws-exports';
 import MyAppLayout from './pages/app-layout/MyAppLayout';
 import TopNavigationComponent from "./pages/app-layout/TopNavigationComponent";
 
+// Configure Amplify
 Amplify.configure(awsExports);
 
-export const AuthContext = createContext();
-
-function App({ signOut, user }) {
+function App() {
   return (
-    <AuthContext.Provider value={{ user, signOut }}>
-      <Router>
-        <TopNavigationComponent />
-        <MyAppLayout />
-      </Router>
-    </AuthContext.Provider>
+    <Router>
+      <TopNavigationComponent />
+      <MyAppLayout />
+    </Router>
   );
 }
 
