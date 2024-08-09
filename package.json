@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/auth": "^6.3.13",
+    "@aws-amplify/backend": "^1.0.4",
+    "@aws-amplify/storage": "^6.6.0",
     "@aws-amplify/ui-react": "^6.1.14",
+    "@aws-amplify/ui-react-storage": "^3.1.6",
     "@cloudscape-design/components": "^3.0.706",
     "@cloudscape-design/global-styles": "^1.0.31",
     "@testing-library/jest-dom": "^5.17.0",

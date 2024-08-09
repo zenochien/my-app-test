@@ -1,0 +1,8 @@
+type CV @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Address: String
+  Phone: AWSPhone
+  Email: String
+}
+ 

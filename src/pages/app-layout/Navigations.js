@@ -4,6 +4,8 @@ import { SideNavigation, SideNavigationProps } from "@cloudscape-design/componen
 export const Navigations = (props) => {
     const navItems = [
         { type: "link", text: "Home", href: "#/home" },
+        { type: "link", text: "CV", href: "#/CV/ProfilePage" },
+
     ];
 
     return (
