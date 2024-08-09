@@ -1,7 +1,7 @@
 import { signOut } from "aws-amplify/auth";
 import React from "react";
 
-const CustomNavigation = () => {
+const TopNavigationComponent = () => {
     async function handleSignOut() {
         try {
             await signOut();
@@ -46,4 +46,4 @@ const styles = {
     },
 };
 
-export default CustomNavigation;
+export default TopNavigationComponent;
