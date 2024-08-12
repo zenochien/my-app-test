@@ -5,11 +5,65 @@
       "UnauthRoleArn": "arn:aws:iam::992382405090:role/amplify-myapptest-dev-87250-unauthRole",
       "AuthRoleArn": "arn:aws:iam::992382405090:role/amplify-myapptest-dev-87250-authRole",
       "Region": "us-east-1",
+<<<<<<< Updated upstream
       "DeploymentBucketName": "amplify-myapptest-dev-87250-deployment",
       "UnauthRoleName": "amplify-myapptest-dev-87250-unauthRole",
       "StackName": "amplify-myapptest-dev-87250",
       "StackId": "arn:aws:cloudformation:us-east-1:992382405090:stack/amplify-myapptest-dev-87250/c8bbfda0-548d-11ef-85d9-0affc0e26fef",
       "AmplifyAppId": "dsqb1xfk5e0a7"
+=======
+      "DeploymentBucketName": "amplify-myapptest-dev-7c2c3-deployment",
+      "UnauthRoleName": "amplify-myapptest-dev-7c2c3-unauthRole",
+      "StackName": "amplify-myapptest-dev-7c2c3",
+      "StackId": "arn:aws:cloudformation:us-east-1:992382405090:stack/amplify-myapptest-dev-7c2c3/3ed40810-555c-11ef-a00b-0ed8e477be05",
+      "AmplifyAppId": "doagpsz13uest"
+    }
+  },
+  "api": {
+    "myapptest": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "myapptest36baefdd"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authmyapptest36baefdd"
+              }
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          }
+        },
+        "GraphQLAPIIdOutput": "sk43l6chrrfcfije6sjey3fbbq",
+        "GraphQLAPIEndpointOutput": "https://gko4vq2z3jcuvij7ab2cxly4du.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-25a7ze6nt5efdifwfr3oawiynq"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2024-08-12T10:30:23.531Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-myapptest-dev-7c2c3-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apimyapptest"
+      },
+      "lastPushDirHash": "IzprthgW5fnVmeHX5p4sD9gPHfg="
+>>>>>>> Stashed changes
     }
   },
   "auth": {
@@ -36,10 +90,26 @@
           "EMAIL"
         ]
       },
+<<<<<<< Updated upstream
+=======
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "us-east-1_uFNpwtTQS",
+        "AppClientIDWeb": "30mkrefeh6mcfgcgpsqhh8a8u9",
+        "AppClientID": "q6fmt6ghaf4b62a1o1qjjg430",
+        "IdentityPoolId": "us-east-1:a9ec4218-26be-4040-8dce-49143387f641",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:992382405090:userpool/us-east-1_uFNpwtTQS",
+        "IdentityPoolName": "myapptest36baefdd_identitypool_36baefdd__dev",
+        "UserPoolName": "myapptest36baefdd_userpool_36baefdd"
+      },
+      "lastPushTimeStamp": "2024-08-12T10:30:23.415Z",
+>>>>>>> Stashed changes
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-myapptest-dev-87250-deployment/amplify-cfn-templates/auth/myapptest16e1e8c9-cloudformation-template.json",
         "logicalId": "authmyapptest16e1e8c9"
       },
+<<<<<<< Updated upstream
       "lastPushTimeStamp": "2024-08-07T07:31:59.941Z",
       "output": {
         "UserPoolId": "us-east-1_ydTFzONjW",
@@ -51,6 +121,13 @@
         "UserPoolName": "myapptest16e1e8c9_userpool_16e1e8c9"
       },
       "lastPushDirHash": "OmijarGa63xAZu+dYmmR98x+2tU="
+=======
+      "lastPushTimeStamp": "2024-08-12T10:30:23.417Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-myapptest-dev-7c2c3-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages354864b13"
+      }
+>>>>>>> Stashed changes
     }
   }
 }

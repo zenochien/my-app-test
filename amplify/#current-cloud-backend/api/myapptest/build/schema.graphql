@@ -1,0 +1,267 @@
+type UploadCV @aws_iam @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  Name: String!
+  Sex: Boolean
+  Phone: AWSPhone
+  Email: AWSEmail!
+  Topic: String
+  Birthday: AWSDate
+  Upload: [String]
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUploadCVConnection @aws_api_key @aws_iam @aws_cognito_user_pools {
+  items: [UploadCV]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelUploadCVFilterInput {
+  id: ModelIDInput
+  Name: ModelStringInput
+  Sex: ModelBooleanInput
+  Phone: ModelStringInput
+  Email: ModelStringInput
+  Topic: ModelStringInput
+  Birthday: ModelStringInput
+  Upload: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelUploadCVFilterInput]
+  or: [ModelUploadCVFilterInput]
+  not: ModelUploadCVFilterInput
+  _deleted: ModelBooleanInput
+}
+
+type Query {
+  getUploadCV(id: ID!): UploadCV @aws_api_key @aws_iam @aws_cognito_user_pools
+  listUploadCVS(filter: ModelUploadCVFilterInput, limit: Int, nextToken: String): ModelUploadCVConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+  syncUploadCVS(filter: ModelUploadCVFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUploadCVConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+input ModelUploadCVConditionInput {
+  Name: ModelStringInput
+  Sex: ModelBooleanInput
+  Phone: ModelStringInput
+  Email: ModelStringInput
+  Topic: ModelStringInput
+  Birthday: ModelStringInput
+  Upload: ModelStringInput
+  and: [ModelUploadCVConditionInput]
+  or: [ModelUploadCVConditionInput]
+  not: ModelUploadCVConditionInput
+  _deleted: ModelBooleanInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+}
+
+input CreateUploadCVInput {
+  id: ID
+  Name: String!
+  Sex: Boolean
+  Phone: AWSPhone
+  Email: AWSEmail!
+  Topic: String
+  Birthday: AWSDate
+  Upload: [String]
+  _version: Int
+}
+
+input UpdateUploadCVInput {
+  id: ID!
+  Name: String
+  Sex: Boolean
+  Phone: AWSPhone
+  Email: AWSEmail
+  Topic: String
+  Birthday: AWSDate
+  Upload: [String]
+  _version: Int
+}
+
+input DeleteUploadCVInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createUploadCV(input: CreateUploadCVInput!, condition: ModelUploadCVConditionInput): UploadCV @aws_api_key @aws_iam @aws_cognito_user_pools
+  updateUploadCV(input: UpdateUploadCVInput!, condition: ModelUploadCVConditionInput): UploadCV @aws_api_key @aws_iam @aws_cognito_user_pools
+  deleteUploadCV(input: DeleteUploadCVInput!, condition: ModelUploadCVConditionInput): UploadCV @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+input ModelSubscriptionUploadCVFilterInput {
+  id: ModelSubscriptionIDInput
+  Name: ModelSubscriptionStringInput
+  Sex: ModelSubscriptionBooleanInput
+  Phone: ModelSubscriptionStringInput
+  Email: ModelSubscriptionStringInput
+  Topic: ModelSubscriptionStringInput
+  Birthday: ModelSubscriptionStringInput
+  Upload: ModelSubscriptionStringInput
+  createdAt: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+  and: [ModelSubscriptionUploadCVFilterInput]
+  or: [ModelSubscriptionUploadCVFilterInput]
+  _deleted: ModelBooleanInput
+}
+
+type Subscription {
+  onCreateUploadCV(filter: ModelSubscriptionUploadCVFilterInput): UploadCV @aws_subscribe(mutations: ["createUploadCV"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onUpdateUploadCV(filter: ModelSubscriptionUploadCVFilterInput): UploadCV @aws_subscribe(mutations: ["updateUploadCV"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onDeleteUploadCV(filter: ModelSubscriptionUploadCVFilterInput): UploadCV @aws_subscribe(mutations: ["deleteUploadCV"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+}

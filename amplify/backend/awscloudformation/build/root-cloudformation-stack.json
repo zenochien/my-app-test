@@ -204,7 +204,37 @@
       "Properties": {
         "TemplateURL": "https://s3.amazonaws.com/amplify-myapptest-dev-87250-deployment/amplify-cfn-templates/auth/myapptest16e1e8c9-cloudformation-template.json",
         "Parameters": {
+<<<<<<< Updated upstream
           "identityPoolName": "myapptest16e1e8c9_identitypool_16e1e8c9",
+=======
+          "AppSyncApiName": "myapptest",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "AuthCognitoUserPoolId": {
+            "Fn::GetAtt": [
+              "authmyapptest36baefdd",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "S3DeploymentBucket": "amplify-myapptest-dev-7c2c3-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/b3dd836957f849bcf96af68afc3de90ed20fe951",
+          "env": "dev"
+        }
+      }
+    },
+    "authmyapptest36baefdd": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-myapptest-dev-7c2c3-deployment/amplify-cfn-templates/auth/myapptest36baefdd-cloudformation-template.json",
+        "Parameters": {
+          "identityPoolName": "myapptest36baefdd_identitypool_36baefdd",
+>>>>>>> Stashed changes
           "allowUnauthenticatedIdentities": false,
           "resourceNameTruncated": "myappt16e1e8c9",
           "userPoolName": "myapptest16e1e8c9_userpool_16e1e8c9",

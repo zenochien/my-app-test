@@ -1,0 +1,11 @@
+type UploadCV @model @auth(rules: [{allow: public}, {allow: private}]) {
+  id: ID!
+  Name: String!
+  Sex: Boolean
+  Phone: AWSPhone
+  Email: AWSEmail!
+  Topic: String
+  Birthday: AWSDate
+  Upload: [String]
+}
+ 
